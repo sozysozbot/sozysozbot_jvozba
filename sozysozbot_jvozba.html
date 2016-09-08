@@ -4,8 +4,18 @@
 <script src="scoring.js"></script>
 <script src="jvozba.js"></script>
 <script src="jvozba_gui.js"></script>
+<style>
+.brivla td {
+	background-color: #ffcccc; padding: 5px; font-weight: bold;
+}
+.cmevla td {
+	background-color: #ccffff; padding: 5px;  font-weight: bold;
+}
+</style>
 </head>
 <body>
-<form name="a"><input type="text" name="b"></form>
+Yet another jvozba
+<form name="a"><input type="text" name="b" value="lujvo zbasu"><input type="button" value="zbasu" onclick="jvozba_gui(document.a.b.value)"></form>
+<div id="res"></div>
 </body>
 </html>
