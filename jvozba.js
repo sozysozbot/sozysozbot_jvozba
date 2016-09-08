@@ -1,3 +1,40 @@
+function normalize(rafsi_list)
+{
+	if(rafsi_list.length === 1) {
+		throw new Error("You need at least two valsi to make a lujvo");
+	}
+	
+	var input = rafsi_list.concat([]); //copy
+	var result = [input.pop()]; // put the last one
+	
+	
+	while(input.length)	{
+		var rafsi = input.pop();
+		var end = rafsi.charAt(rafsi.length - 1);
+		var init = result[0].charAt(0);	
+		
+		if(is_4letter(rafsi)) {
+			result.unshift("y");
+		} else if(input.length === 0 && is_CVV(rafsi)) { //adapting first rafsi, which is CVV; gotta think about r-hyphen
+			var hyphen = "r";
+			if(result[0].charAt(0) === "r") {
+				hyphen = "n";
+			}
+			
+			if(rafsi_list.length > 2 || !is_CCV(result[0])) {
+				result.unshift(hyphen);
+			}
+		} else if(get_info(end) === "C" && get_info(init) === "C" && is_permissible(end, init) === 0) {
+			result.unshift("y");
+		}
+		
+		result.unshift(rafsi);
+	}
+	
+	return result;
+}
+
+
 
 function is_CVV(rafsi)
 {
