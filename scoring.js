@@ -21,6 +21,11 @@ function get_lujvo_score(rafsi_ynr_sequence)
 	return (1000 * L) - (500 * A) + (100 * H) - (10 * R) - V;
 }
 
+/* 
+get_info("jvo") === "CCV"
+get_info("ma'o") === "CV'V"
+get_info("r") === "hyphen"
+*/
 function get_info(v)
 {
 	if(v === "y" || v === "n" || v === "r") { return "hyphen"; }
