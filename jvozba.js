@@ -15,6 +15,8 @@ function normalize(rafsi_list)
 		
 		if(is_4letter(rafsi)) {
 			result.unshift("y");
+		} else if(get_info(end) === "C" && get_info(init) === "C" && is_permissible(end, init) === 0) {
+			result.unshift("y");
 		} else if(input.length === 0 && is_CVV(rafsi)) { //adapting first rafsi, which is CVV; gotta think about r-hyphen
 			var hyphen = "r";
 			if(result[0].charAt(0) === "r") {
@@ -24,7 +26,7 @@ function normalize(rafsi_list)
 			if(rafsi_list.length > 2 || !is_CCV(result[0])) {
 				result.unshift(hyphen);
 			}
-		} else if(get_info(end) === "C" && get_info(init) === "C" && is_permissible(end, init) === 0) {
+		} else if(input.length === 0 && is_CVC(rafsi) && is_tosmabru(rafsi, result)){
 			result.unshift("y");
 		}
 		
@@ -34,6 +36,39 @@ function normalize(rafsi_list)
 	return result;
 }
 
+function is_tosmabru(rafsi, rest)
+{
+	var index;
+	for(var i=0; i<rest.length; i++) {
+		if(is_CVC(rest[i])) continue; 
+		
+		index = i;
+		if(rest[i] === "y" || 
+			(get_info(rest[i]) === "CVCCV" && 2 === is_permissible(rest[i].charAt(2),rest[i].charAt(3))) 
+		) {
+			break;
+			// further testing
+		} else {
+			return false;
+		}
+	}
+	
+	//further testing
+	
+	var one = rafsi;
+	var two = rest[0];
+	var j = 0;
+	do {
+		if(two === "y") return true;
+		
+		if(2 !== is_permissible(one.charAt(one.length-1),two.charAt(0)) ){
+			return false;
+		}
+		one = two;
+		two = rest[++j];
+	} while(j <= index);
+	return true;
+}
 
 
 function is_CVV(rafsi)
@@ -45,6 +80,11 @@ function is_CVV(rafsi)
 function is_CCV(rafsi)
 {
 	return get_info(rafsi) === "CCV";
+}
+
+function is_CVC(rafsi)
+{
+	return get_info(rafsi) === "CVC";
 }
 
 function is_4letter(rafsi)
