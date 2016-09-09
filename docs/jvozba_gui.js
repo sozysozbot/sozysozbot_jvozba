@@ -3,9 +3,9 @@ function jvozba_gui(txt)
 	txt = txt.replace(/h/g, "'");
 	txt = txt.toLowerCase();
 	var arr = txt.split(" ");
-	var candid_arr = get_candidates(arr);
 	
 try{
+	var candid_arr = get_candidates(arr);
 	var answers = create_every_possibility(candid_arr).map(function(rafsi_list){
 		var result = normalize(rafsi_list);
 		return {lujvo: result.join(""), score: get_lujvo_score(result)};
@@ -69,25 +69,29 @@ function get_candidates(arr)
 	var candid_arr = [];
 	for(var i = 0; i < arr.length; i++) {
 		if(arr[i] === "") continue;
-		if(cmavo_rafsi_list[arr[i]]) {
-			candid_arr.push(cmavo_rafsi_list[arr[i]]);		
-		} else if(gismu_rafsi_list[arr[i]]){
-			var gismu = arr[i];
-			var candid = gismu_rafsi_list[gismu].concat([]);
-			
-			if(i === arr.length - 1) {
-				candid.push(gismu);
-			}
-			
-			var chopped = gismu.slice(0,-1);
-			if(chopped !== "brod") 
-				candid.push(chopped);
-			
-			candid_arr.push(candid);
-		} else {
-			alert("no rafsi for word " + arr[i]);
-			return;
-		}
+		candid_arr.push(get_candid(arr[i], i === arr.length - 1))
 	}
 	return candid_arr;
+}
+
+function get_candid(selrafsi, isLast)
+{
+	if(cmavo_rafsi_list[selrafsi]) {
+		return cmavo_rafsi_list[selrafsi];		
+	} else if(gismu_rafsi_list[selrafsi]){
+		var gismu = selrafsi;
+		var candid = gismu_rafsi_list[gismu].concat([]);
+		
+		if(isLast) {
+			candid.push(gismu);
+		}
+		
+		var chopped = gismu.slice(0,-1);
+		if(chopped !== "brod") 
+			candid.push(chopped);
+		
+		return candid;
+	} else {
+		throw new Error("no rafsi for word " + selrafsi);
+	}
 }
