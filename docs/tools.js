@@ -38,9 +38,6 @@ function get_candid(selrafsi, isLast)
 			candid.push(chopped);
 		
 		return candid;
-	} else if(selrafsi.indexOf("-") === 0 || selrafsi.indexOf("-") === selrafsi.length - 1) { // "luj-" or "-jvo"
-		var rafsi = selrafsi.replace(/-/g, "");
-		return get_candid(search_selrafsi_from_rafsi(rafsi), isLast) // recursion
 	} else {
 		throw new Error("no rafsi for word " + selrafsi);
 	}

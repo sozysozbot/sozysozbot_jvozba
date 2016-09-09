@@ -3,11 +3,18 @@ function jvozba_gui(txt)
 	txt = txt.replace(/h/g, "'");
 	txt = txt.toLowerCase();
 	var arr = txt.split(" ");
+	var arr2 = [];
 	
 try{
 	var candid_arr = [];
 	for(var i = 0; i < arr.length; i++) {
 		if(arr[i] === "") continue;
+		
+		var dat = arr[i];
+		if(dat.indexOf("-") === 0 || dat.indexOf("-") === dat.length - 1) { // "luj-" or "-jvo"
+			arr[i] = search_selrafsi_from_rafsi(dat.replace(/-/g, ""));
+		}
+		arr2[arr2.length] = arr[i];
 		candid_arr.push(get_candid(arr[i], /*isLast:*/ i === arr.length - 1))
 	}
 	
@@ -20,11 +27,12 @@ try{
 }catch(e){
 	alert(e); return;
 }
-	output_answers(answers);
+	output_answers(answers, arr2);
 }
 
-function output_answers(answers)
+function output_answers(answers, inputs)
 {
+	var info = "<div>Displaying results for {" + inputs.join(" ") + "}:</div>";
 	var table = "<table>"
 	for(var i=0; i<answers.length; i++) {
 		var word = answers[i].lujvo;
@@ -42,5 +50,5 @@ function output_answers(answers)
 	}
 	
 	table += "</table>"
-	document.getElementById("res").innerHTML = table;
+	document.getElementById("res").innerHTML = info + table;
 }
