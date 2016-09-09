@@ -27,7 +27,10 @@ Sample inputs:<br>
 <li>jvo- zbasu</li>
 <li>jvo- zba-</li>
 </ul>
-<form name="a"><input type="text" name="b" value="lujvo zbasu"><input type="button" value="zbasu" onclick="jvozba_gui(document.a.b.value)"></form>
+<form name="a" onsubmit="jvozba_gui(document.a.b.value);return false;">
+	<input type="text" name="b" value="lujvo zbasu">
+	<input type="button" value="zbasu" onclick="jvozba_gui(document.a.b.value)">
+</form>
 <div id="res"></div>
 </body>
 </html>
