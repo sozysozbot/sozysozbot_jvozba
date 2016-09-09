@@ -3,9 +3,14 @@ function jvozba_gui(txt)
 	txt = txt.replace(/h/g, "'");
 	txt = txt.toLowerCase();
 	var arr = txt.split(" ");
-	var candid_arr = get_candidates(arr);
 	
 try{
+	var candid_arr = [];
+	for(var i = 0; i < arr.length; i++) {
+		if(arr[i] === "") continue;
+		candid_arr.push(get_candid(arr[i], /*isLast:*/ i === arr.length - 1))
+	}
+	
 	var answers = create_every_possibility(candid_arr).map(function(rafsi_list){
 		var result = normalize(rafsi_list);
 		return {lujvo: result.join(""), score: get_lujvo_score(result)};
@@ -64,30 +69,38 @@ function create_every_possibility(aa)
 	return result;
 }
 	
-function get_candidates(arr)
+function get_candid(selrafsi, isLast)
 {
-	var candid_arr = [];
-	for(var i = 0; i < arr.length; i++) {
-		if(arr[i] === "") continue;
-		if(cmavo_rafsi_list[arr[i]]) {
-			candid_arr.push(cmavo_rafsi_list[arr[i]]);		
-		} else if(gismu_rafsi_list[arr[i]]){
-			var gismu = arr[i];
-			var candid = gismu_rafsi_list[gismu].concat([]);
-			
-			if(i === arr.length - 1) {
-				candid.push(gismu);
-			}
-			
-			var chopped = gismu.slice(0,-1);
-			if(chopped !== "brod") 
-				candid.push(chopped);
-			
-			candid_arr.push(candid);
-		} else {
-			alert("no rafsi for word " + arr[i]);
-			return;
+	if(cmavo_rafsi_list[selrafsi]) {
+		return cmavo_rafsi_list[selrafsi];		
+	} else if(gismu_rafsi_list[selrafsi]){
+		var gismu = selrafsi;
+		var candid = gismu_rafsi_list[gismu].concat([]);
+		
+		if(isLast) {
+			candid.push(gismu);
 		}
+		
+		var chopped = gismu.slice(0,-1);
+		if(chopped !== "brod") 
+			candid.push(chopped);
+		
+		return candid;
+	} else if(selrafsi.indexOf("-") === 0 || selrafsi.indexOf("-") === selrafsi.length - 1) { // "luj-" or "-jvo"
+		var rafsi = selrafsi.replace(/-/g, "");
+		return get_candid(search_selrafsi_from_rafsi(rafsi), isLast) // recursion
+	} else {
+		throw new Error("no rafsi for word " + selrafsi);
 	}
-	return candid_arr;
+}
+
+function search_selrafsi_from_rafsi(rafsi)
+{
+	for(var i in gismu_rafsi_list) {
+		if(gismu_rafsi_list[i].indexOf(rafsi) !== -1) return i;
+	}
+	for(var j in cmavo_rafsi_list) {
+		if(cmavo_rafsi_list[j].indexOf(rafsi) !== -1) return j;
+	}
+	return null;
 }
