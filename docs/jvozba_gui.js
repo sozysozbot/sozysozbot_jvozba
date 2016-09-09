@@ -5,7 +5,12 @@ function jvozba_gui(txt)
 	var arr = txt.split(" ");
 	
 try{
-	var candid_arr = get_candidates(arr);
+	var candid_arr = [];
+	for(var i = 0; i < arr.length; i++) {
+		if(arr[i] === "") continue;
+		candid_arr.push(get_candid(arr[i], /*isLast:*/ i === arr.length - 1))
+	}
+	
 	var answers = create_every_possibility(candid_arr).map(function(rafsi_list){
 		var result = normalize(rafsi_list);
 		return {lujvo: result.join(""), score: get_lujvo_score(result)};
@@ -64,16 +69,6 @@ function create_every_possibility(aa)
 	return result;
 }
 	
-function get_candidates(arr)
-{
-	var candid_arr = [];
-	for(var i = 0; i < arr.length; i++) {
-		if(arr[i] === "") continue;
-		candid_arr.push(get_candid(arr[i], i === arr.length - 1))
-	}
-	return candid_arr;
-}
-
 function get_candid(selrafsi, isLast)
 {
 	if(cmavo_rafsi_list[selrafsi]) {
