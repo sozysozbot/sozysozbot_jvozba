@@ -47,6 +47,10 @@ function search_selrafsi_from_rafsi(rafsi)
 {
 	if(gismu_rafsi_list[rafsi]) return rafsi; // 5-letter rafsi
 	
+	/* 
+		I spent 45 minutes trying to find out whether "brod" can be a rafsi for "brodV", but couldn't find that out.
+		Thus, for the present I forbid the use of "brod" as a rafsi.
+	*/
 	if(rafsi !== "brod" && rafsi.length === 4 && rafsi.indexOf("'") === -1) { //4-letter rafsi
 		for(var u=0; u<5; u++) { 
 			var gismu_candid = rafsi + "aeiou".charAt(u);
