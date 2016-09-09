@@ -4,12 +4,17 @@ function jvozba_gui(txt)
 	txt = txt.toLowerCase();
 	var arr = txt.split(" ");
 	var candid_arr = get_candidates(arr);
+	
+try{
 	var answers = create_every_possibility(candid_arr).map(function(rafsi_list){
 		var result = normalize(rafsi_list);
 		return {lujvo: result.join(""), score: get_lujvo_score(result)};
 	}).sort(function(a,b){
 		return a.score - b.score;
 	});
+}catch(e){
+	alert(e); return;
+}
 	output_answers(answers);
 }
 
