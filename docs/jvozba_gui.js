@@ -86,7 +86,21 @@ function get_candid(selrafsi, isLast)
 			candid.push(chopped);
 		
 		return candid;
+	} else if(selrafsi.indexOf("-") === 0 || selrafsi.indexOf("-") === selrafsi.length - 1) { // "luj-" or "-jvo"
+		var rafsi = selrafsi.replace(/-/g, "");
+		return get_candid(search_selrafsi_from_rafsi(rafsi), isLast) // recursion
 	} else {
 		throw new Error("no rafsi for word " + selrafsi);
 	}
+}
+
+function search_selrafsi_from_rafsi(rafsi)
+{
+	for(var i in gismu_rafsi_list) {
+		if(gismu_rafsi_list[i].indexOf(rafsi) !== -1) return i;
+	}
+	for(var j in cmavo_rafsi_list) {
+		if(cmavo_rafsi_list[j].indexOf(rafsi) !== -1) return j;
+	}
+	return null;
 }
