@@ -63,5 +63,6 @@ function search_selrafsi_from_rafsi(rafsi)
 	for(var j in cmavo_rafsi_list) {
 		if(cmavo_rafsi_list[j].indexOf(rafsi) !== -1) return j;
 	}
-	return null;
+	
+	throw new Error("no word for rafsi " + rafsi);
 }
