@@ -45,6 +45,14 @@ function get_candid(selrafsi, isLast)
 
 function search_selrafsi_from_rafsi(rafsi)
 {
+	if(gismu_rafsi_list[rafsi]) return rafsi; // 5-letter rafsi
+	
+	if(rafsi !== "brod" && rafsi.length === 4 && rafsi.indexOf("'") === -1) { //4-letter rafsi
+		for(var u=0; u<5; u++) { 
+			var gismu_candid = rafsi + "aeiou".charAt(u);
+			if(gismu_rafsi_list[gismu_candid]) return gismu_candid;
+		}
+	}
 	for(var i in gismu_rafsi_list) {
 		if(gismu_rafsi_list[i].indexOf(rafsi) !== -1) return i;
 	}
