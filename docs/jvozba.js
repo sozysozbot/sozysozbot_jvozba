@@ -115,6 +115,3 @@ function is_permissible(c1, c2) //2: initial ok; 1: ok; 0: none ok
 		p:{r:2,l:2,n:1,m:1,b:0,v:0,d:0,g:0,j:0,z:0,s:1,c:1,x:1,k:1,t:1,f:1,p:0}
 	}[c1][c2];
 }
-
-
-
