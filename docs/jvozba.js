@@ -5,7 +5,7 @@ function normalize(rafsi_list)
 	}
 	
 	var input = rafsi_list.concat([]); //copy
-	var result = [input.pop()]; // put the last one
+	var result = [input.pop()]; // add the final rafsi
 	
 	
 	while(input.length)	{
@@ -55,17 +55,17 @@ function is_tosmabru(rafsi, rest)
 	
 	//further testing
 	
-	var one = rafsi;
-	var two = rest[0];
+	var tmp1 = rafsi;
+	var tmp2 = rest[0];
 	var j = 0;
 	do {
-		if(two === "y") return true;
+		if(tmp2 === "y") return true;
 		
-		if(2 !== is_permissible(one.charAt(one.length-1),two.charAt(0)) ){
+		if(2 !== is_permissible(tmp1.charAt(tmp1.length-1),tmp2.charAt(0)) ){
 			return false;
 		}
-		one = two;
-		two = rest[++j];
+		tmp1 = tmp2;
+		tmp2 = rest[++j];
 	} while(j <= index);
 	return true;
 }
