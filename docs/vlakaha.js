@@ -49,6 +49,7 @@ function jvokaha2(lujvo)
 		if(lujvo === "") return res;
 		
 		//remove hyphen
+	if(res.length > 0 && res[res.length-1].length !== 1) { // hyphen cannot begin a word; nor can two hyphens 
 		if(lujvo.charAt(0) === "y" // y-hyphen
 		|| lujvo.slice(0,2) === "nr" // n-hyphen is only allowed before r
 		|| lujvo.charAt(0) === "r" && get_CV_info(lujvo.charAt(1)) === "C" // r followed by a consonant
@@ -57,6 +58,7 @@ function jvokaha2(lujvo)
 			lujvo = lujvo.slice(1);
 			continue;
 		}
+	}	
 		
 		
 		
