@@ -13,10 +13,10 @@ function vlakaha()
 }
 
 /*
-vlakaha("fu'ivla") --> ["fu'i", "vla"]
-vlakaha("fu'irvla") --> null // because r-hyphen is not required 
-vlakaha("pasymabru") --> ["pas", "y", "mabru"]
-vlakaha("pasmabru") --> null // because {pasmabru} is actually {pa smabru}
+jvokaha("fu'ivla") --> ["fu'i", "vla"]
+jvokaha("fu'irvla") --> error // because r-hyphen is unnecessary 
+jvokaha("pasymabru") --> ["pas", "y", "mabru"]
+jvokaha("pasmabru") --> error // because {pasmabru} is actually {pa smabru}
 */
 function jvokaha(lujvo)
 {
@@ -25,11 +25,12 @@ function jvokaha(lujvo)
 		return a.length !== 1; // remove ynr
 	});
 	
-	if( JSON.stringify(arr) 
-	=== JSON.stringify(normalize(rafsi_list))) { // recreate the lujvo from the rafsi list and 
+	var correct_lujvo = normalize(rafsi_list).join("");  // recreate the lujvo from the rafsi list
+	
+	if(lujvo === correct_lujvo) {
 		return arr;
 	} else {
-		return null;
+		throw new Error("malformed lujvo {" + lujvo + "}; it should be {" + correct_lujvo + "}");
 	}
 }
 
@@ -105,7 +106,8 @@ function jvokaha2(lujvo)
 		}
 	
 		// if all fails...
-		return null;
+		console.log(res,lujvo)
+		throw new Error("Failed to decompose {" + original_lujvo + "}");
 	}
 	return res;	
 }
