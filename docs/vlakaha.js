@@ -22,7 +22,7 @@ function jvokaha(lujvo)
 {
 	var arr = jvokaha2(lujvo);
 	var rafsi_list = arr.filter(function(a){
-		return a.length === 1; // ynr
+		return a.length !== 1; // remove ynr
 	});
 	
 	if( JSON.stringify(arr) 
