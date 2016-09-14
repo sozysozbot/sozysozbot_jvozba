@@ -29,13 +29,9 @@ get_info("r") === "hyphen"
 function get_info(v)
 {
 	if(v === "y" || v === "n" || v === "r") { return "hyphen"; }
-	return v.split("").map(convert).join("");
+	return v.split("").map(function (c){
+			if("aeiou".indexOf(c) !== -1) return "V";
+			if("bcdfgjklmnprstvxz".indexOf(c) !== -1) return "C";
+			if(c === "'") return "'";
+		}).join("");
 }
-
-function convert(c)
-{
-	if("aeiou".indexOf(c) !== -1) return "V";
-	if("bcdfgjklmnprstvxz".indexOf(c) !== -1) return "C";
-	if(c === "'") return "'";
-}
-
