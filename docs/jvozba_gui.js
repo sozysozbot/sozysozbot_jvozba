@@ -36,7 +36,7 @@ function output_answers(answers, inputs)
 	var table = "<table>"
 	for(var i=0; i<answers.length; i++) {
 		var word = answers[i].lujvo;
-		var last = get_info(word[word.length-1]);
+		var last = get_CV_info(word[word.length-1]);
 		
 		table += "<tr class='"+ 
 		 (last === "V" ? "brivla" : "cmevla") +"'>";
