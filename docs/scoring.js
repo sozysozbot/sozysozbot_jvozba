@@ -33,5 +33,6 @@ function get_CV_info(v)
 			if("aeiou".indexOf(c) !== -1) return "V";
 			if("bcdfgjklmnprstvxz".indexOf(c) !== -1) return "C";
 			if(c === "'") return "'";
+			if(c === "'") return "Y";
 		}).join("");
 }
