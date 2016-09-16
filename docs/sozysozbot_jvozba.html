@@ -9,17 +9,13 @@
 <script src="jvozba.js"></script>
 <script src="tools.js"></script>
 <script src="jvokaha.js"></script>
+<script src="jvokaha_gui.js"></script>
 <script src="jvozba_gui.js"></script>
-<style>
-.brivla td {
-	background-color: #ffcccc; padding: 5px; font-weight: bold;
-}
-.cmevla td {
-	background-color: #ccffff; padding: 5px;  font-weight: bold;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+<table class="main">
+<tr class="main2"><td>
 Yet another jvozba<br>
 Sample inputs:<br>
 <ul>
@@ -33,5 +29,23 @@ Sample inputs:<br>
 	<input type="button" value="zbasu" onclick="jvozba_gui(document.a.b.value)">
 </form>
 <div id="res"></div>
+</td>
+<td>
+Yet another jvoka'a<br>
+Sample inputs:<br>
+<ul>
+<li>fu'ivla</li>
+<li>selbritcita</li>
+<li>jvokaha</li>
+<li>sofybakni</li>
+</ul>
+<form name="c" onsubmit="jvokaha_gui(document.c.d.value);return false;">
+	<input type="text" name="d" value="jvoka'a">
+	<input type="button" value="zbasu" onclick="jvokaha_gui(document.c.d.value)">
+</form>
+<div id="res2"></div>
+</td>
+</tr>
+</table>
 </body>
 </html>

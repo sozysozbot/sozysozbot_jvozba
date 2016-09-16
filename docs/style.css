@@ -1,0 +1,18 @@
+.brivla td {
+	background-color: #ffcccc; padding: 5px; font-weight: bold;
+}
+.cmevla td {
+	background-color: #ccffff; padding: 5px;  font-weight: bold;
+}
+
+.main {
+	margin: auto;
+}
+
+.main2 > td {
+	border: 2px solid black; padding: 20px; vertical-align: top; 
+}
+
+.txt {
+	padding: 10px 0; font-size: 110%; 
+}
