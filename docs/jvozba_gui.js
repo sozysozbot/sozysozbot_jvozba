@@ -27,12 +27,12 @@ try{
 }catch(e){
 	alert(e); return;
 }
-	output_answers(answers, arr2);
+	output_jvozba_answers(answers, arr2);
 }
 
-function output_answers(answers, inputs)
+function output_jvozba_answers(answers, inputs)
 {
-	var info = "<div>Displaying results for {" + inputs.join(" ") + "}:</div>";
+	var info = "<div class='txt'>Displaying results for {" + inputs.join(" ") + "}:</div>";
 	var table = "<table>"
 	for(var i=0; i<answers.length; i++) {
 		var word = answers[i].lujvo;
