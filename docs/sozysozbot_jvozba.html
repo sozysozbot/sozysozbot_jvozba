@@ -18,21 +18,48 @@
 .cmevla td {
 	background-color: #ccffff; padding: 5px;  font-weight: bold;
 }
+
+.main {
+	margin: auto;
+}
+
+.main2 > td {
+	border: 2px solid black; padding: 20px; vertical-align: top; width: 250px;
+}
 </style>
 </head>
 <body>
+<table class="main">
+<tr class="main2"><td>
 Yet another jvozba<br>
 Sample inputs:<br>
 <ul>
 <li>lujvo zbasu</li>
 <li>lujvo -zba</li>
 <li>jvo- zbasu</li>
-<li>jvo- zba-</li>
+<li>jvO- zBa-</li>
 </ul>
 <form name="a" onsubmit="jvozba_gui(document.a.b.value);return false;">
 	<input type="text" name="b" value="lujvo zbasu">
 	<input type="button" value="zbasu" onclick="jvozba_gui(document.a.b.value)">
 </form>
 <div id="res"></div>
+</td>
+<td>
+Yet another jvoka'a<br>
+Sample inputs:<br>
+<ul>
+<li>fu'ivla</li>
+<li>selbritcita</li>
+<li>jvokaha</li>
+<li>sofyBAKni</li>
+</ul>
+<form name="c" onsubmit="jvokaha_gui(document.c.d.value);return false;">
+	<input type="text" name="d" value="jvoka'a">
+	<input type="button" value="zbasu" onclick="jvokaha_gui(document.c.d.value)">
+</form>
+</td>
+</tr>
+</table>
 </body>
 </html>

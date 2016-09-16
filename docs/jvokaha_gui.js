@@ -1,4 +1,4 @@
-function jvokaha_gui()
+function jvokaha_gui(txt)
 {
 	txt = txt.replace(/h/g, "'");
 	txt = txt.toLowerCase();
