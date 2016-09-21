@@ -6,7 +6,7 @@ function get_lujvo_score(rafsi_ynr_sequence)
 	var H = 0; var R = 0;
 	for(var i=0; i < rafsi_ynr_sequence.length; i++) {
 		switch(get_CV_info(rafsi_ynr_sequence[i])) {
-			case "hyphen": H++; break;
+			case "C": case "Y": H++; break; // ynr-hyphen
 			case "CVCCV": R+=1; break;
 			case "CVCC":  R+=2; break;
 			case "CCVCV": R+=3; break;
@@ -24,11 +24,9 @@ function get_lujvo_score(rafsi_ynr_sequence)
 /* 
 get_CV_info("jvo") === "CCV"
 get_CV_info("ma'o") === "CV'V"
-get_CV_info("r") === "hyphen"
 */
 function get_CV_info(v)
 {
-	if(v === "y" || v === "n" || v === "r") { return "hyphen"; }
 	return v.split("").map(function (c){
 			if("aeiou".indexOf(c) !== -1) return "V";
 			if("bcdfgjklmnprstvxz".indexOf(c) !== -1) return "C";
