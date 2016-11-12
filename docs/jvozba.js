@@ -17,6 +17,8 @@ function normalize(rafsi_list)
 			result.unshift("y");
 		} else if(get_CV_info(end) === "C" && get_CV_info(init) === "C" && is_permissible(end, init) === 0) {
 			result.unshift("y");
+		} else if(end === "n" && ["ts","tc","dz","dj"].indexOf(result[0].slice(0,2)) !== -1){
+			result.unshift("y");
 		} else if(input.length === 0 && is_CVV(rafsi)) { //adapting first rafsi, which is CVV; gotta think about r-hyphen
 			var hyphen = "r";
 			if(result[0].charAt(0) === "r") {
