@@ -32,7 +32,7 @@ try{
 
 function output_jvozba_answers(answers, inputs)
 {
-	var info = "<div class='txt'>Displaying results for {" + inputs.join(" ") + "}:</div>";
+	var info = "<div class='txt'>Displaying results for {" + inputs.join(" ") + "}: <span class='bri'>brivla</span> <span class='cme'>cmevla</span></div>";
 	var table = "<table>"
 	for(var i=0; i<answers.length; i++) {
 		var word = answers[i].lujvo;
