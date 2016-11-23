@@ -6,13 +6,21 @@
 }
 
 .main {
-	margin: auto;
+	width:100%;
 }
 
 .main2 > td {
-	border: 2px solid black; padding: 20px; vertical-align: top; 
+	vertical-align: top; 
 }
 
 .txt {
 	padding: 10px 0; font-size: 110%; 
+}
+
+.u {
+	border: 2px solid green; padding: 20px; vertical-align: top; width:250px;
+}
+
+.right {
+	margin-left: auto;
 }
