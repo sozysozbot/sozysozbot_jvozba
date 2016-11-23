@@ -5,6 +5,9 @@
 	background-color: #ccffff; padding: 5px;  font-weight: bold;
 }
 
+.bri {background-color: #ffcccc; font-size: 80%; padding:2px}
+.cme {background-color: #ccffff; font-size: 80%; padding:2px}
+
 .main {
 	width:100%;
 }
