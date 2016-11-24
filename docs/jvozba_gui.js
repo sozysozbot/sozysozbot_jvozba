@@ -6,10 +6,9 @@ function jvozba_gui(txt)
 	var arr2 = [];
 	
 try{
+	arr = arr.filter(function(a){ return a !== ""; });
 	var candid_arr = [];
 	for(var i = 0; i < arr.length; i++) {
-		if(arr[i] === "") continue;
-		
 		var dat = arr[i];
 		if(dat.indexOf("-") === 0 || dat.indexOf("-") === dat.length - 1) { // "luj-" or "-jvo"
 			arr[i] = search_selrafsi_from_rafsi(dat.replace(/-/g, ""));
