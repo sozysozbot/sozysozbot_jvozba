@@ -40,6 +40,12 @@ function normalize(rafsi_list)
 
 function is_tosmabru(rafsi, rest)
 {
+	//skip if cmevla
+	var last = rest[rest.length - 1];
+	if(["a", "e", "i", "o", "u"].indexOf(last.charAt(last.length - 1)) === -1) { // ends with a consonant
+		return;
+	}
+	
 	var index;
 	for(var i=0; i<rest.length; i++) {
 		if(is_CVC(rest[i])) continue; 
