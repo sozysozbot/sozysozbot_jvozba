@@ -61,7 +61,7 @@ function output_jvozba_answers(answers, inputs)
 			table += "<td>";
 			table += word;
 			table += "</td>";
-			table += "<td>";
+			table += "<td style='text-align: right;'>";
 			table += answers[i].score;
 			table += "</td>";
 		table += "</tr>";
