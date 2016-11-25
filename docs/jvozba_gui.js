@@ -7,6 +7,15 @@ function jvozba_gui(txt)
 	
 try{
 	arr = arr.filter(function(a){ return a !== ""; });
+	if(arr.length === 0){
+		/* empty */
+		return;
+	}
+	if(arr.length === 1){
+		output_corresponding_selrafsi(arr[0]);
+		return;
+	}
+	
 	var candid_arr = [];
 	for(var i = 0; i < arr.length; i++) {
 		var dat = arr[i];
@@ -27,6 +36,16 @@ try{
 	alert(e); return;
 }
 	output_jvozba_answers(answers, arr2);
+}
+
+
+/* single rafsi -> dictionary */
+function output_corresponding_selrafsi(rafsi)
+{
+	var bare_rafsi = rafsi.replace(/-/g, "")
+	var selrafsi = search_selrafsi_from_rafsi(bare_rafsi);
+	var info = "<div class='txt'>-" + bare_rafsi + "- is a rafsi for {" + selrafsi + "}</div>";
+	document.getElementById("res").innerHTML = info;
 }
 
 function output_jvozba_answers(answers, inputs)
