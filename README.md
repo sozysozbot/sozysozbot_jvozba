@@ -7,7 +7,7 @@ Just access https://sozysozbot.github.io/sozysozbot_jvozba/sozysozbot_jvozba.htm
 ## Major changes
 2016/11/25 Display the original word when the input is a single rafsi    
 2016/11/25 DEBUG: no tosmabru test for cmevla  
-2016/11/23 Improve the styling
+2016/11/23 Improve the styling  
 2016/11/12 DEBUG: forbid `nts`, `ntc`, `ndz`, `ndj`  
 2016/09/21 DEBUG: forbid consecutive `r`  
 2016/09/17 Implement jvoka'a, or a lujvo decomposer  
@@ -18,6 +18,7 @@ Just access https://sozysozbot.github.io/sozysozbot_jvozba/sozysozbot_jvozba.htm
 
 ## To do
 1. Add an option to choose whether to allow `la`, `lai` and `doi` inside cmevla
+2. Make cmevla be decomposable by jvoka'a  
 
 ## How you can contribute
 1. Use & suggest improvements
