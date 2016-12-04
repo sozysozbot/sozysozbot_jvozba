@@ -21,7 +21,7 @@ function normalize(rafsi_list)
 			result.unshift("y");
 		} else if(input.length === 0 && is_CVV(rafsi)) { //adapting first rafsi, which is CVV; gotta think about r-hyphen
 			var hyphen = "r";
-			if(result[0].charAt(0) === "r") {
+			if(result[0].startsWith("r")) {
 				hyphen = "n";
 			}
 			

@@ -19,7 +19,7 @@ try{
 	var candid_arr = [];
 	for(var i = 0; i < arr.length; i++) {
 		var dat = arr[i];
-		if(dat.indexOf("-") === 0 || dat.indexOf("-") === dat.length - 1) { // "luj-" or "-jvo"
+		if(dat.startsWith("-") || dat.endsWith("-")) { // "luj-" or "-jvo"
 			arr[i] = search_selrafsi_from_rafsi(dat.replace(/-/g, ""));
 		}
 		arr2[arr2.length] = arr[i];
