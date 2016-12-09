@@ -52,7 +52,7 @@ function jvokaha2(lujvo)
 		
 		//CVV can always be dropped
 		if(get_CV_info(lujvo.slice(0,3)) === "CVV"
-		&& ["ai", "ei", "oi", "au"].indexOf(lujvo.slice(1,3))
+		&& ["ai", "ei", "oi", "au"].indexOf(lujvo.slice(1,3)) !== -1
 		){
 			res.push(lujvo.slice(0,3));
 			lujvo = lujvo.slice(3);
