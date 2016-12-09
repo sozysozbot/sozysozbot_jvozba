@@ -1,0 +1,7 @@
+Error: malformed lujvo {cmata'orskami}; it should be {cmata'oskami}
+Error: malformed lujvo {ditycma}; it should be {ditcma}
+Error: malformed lujvo {facyfau}; it should be {facfau}
+Error: malformed lujvo {leksikysle}; it should be {leksiksle}
+Error: malformed lujvo {likyri'a}; it should be {likri'a}
+Error: malformed lujvo {rivyzu'e}; it should be {rivzu'e}
+Error: malformed lujvo {selda'ergau}; it should be {selda'egau}
