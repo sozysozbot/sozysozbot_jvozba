@@ -9,7 +9,12 @@ function jvokaha_gui(txt)
 			return a.length > 1;
 		});
 		arr = arr.map(function(rafsi){
-			return search_selrafsi_from_rafsi(rafsi);
+			var selrafsi = search_selrafsi_from_rafsi2(rafsi)
+			if(selrafsi) {
+				return selrafsi;
+			} else {
+				return "-" + rafsi + "-" // output as rafsi form; signify as unknown
+			}
 		});
 	} catch(e) {
 		alert(e); return;
