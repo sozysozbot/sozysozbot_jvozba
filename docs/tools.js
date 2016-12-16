@@ -45,7 +45,7 @@ function get_candid(selrafsi, isLast)
 	}
 }
 
-function search_selrafsi_from_rafsi(rafsi)
+function search_selrafsi_from_rafsi2(rafsi)
 {
 	if(gismu_rafsi_list[rafsi]) return rafsi; // 5-letter rafsi
 	
@@ -66,5 +66,15 @@ function search_selrafsi_from_rafsi(rafsi)
 		if(cmavo_rafsi_list[j].indexOf(rafsi) !== -1) return j;
 	}
 	
-	throw new Error("no word for rafsi " + rafsi);
+	return null;
+}
+
+function search_selrafsi_from_rafsi(rafsi)
+{
+	var selrafsi = search_selrafsi_from_rafsi2(rafsi)
+	if(selrafsi != null) {
+		return selrafsi;
+	} else {
+		throw new Error("no word for rafsi " + rafsi);
+	}
 }
