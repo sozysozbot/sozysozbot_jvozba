@@ -9,7 +9,6 @@ function jvokaha_gui(txt)
 			return a.length > 1;
 		});
 		arr = arr.map(search_selrafsi_from_rafsi);
-		console.log(arr);
 	} catch(e) {
 		alert(e); return;
 	}
