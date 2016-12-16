@@ -5,12 +5,12 @@ function jvozba_gui(txt)
 	var arr = txt.split(" ");
 	var arr2 = [];
 	
-try{
 	arr = arr.filter(function(a){ return a !== ""; });
 	if(arr.length === 0){
 		/* empty */
 		return;
 	}
+try{
 	if(arr.length === 1){
 		output_corresponding_selrafsi(arr[0]);
 		return;
