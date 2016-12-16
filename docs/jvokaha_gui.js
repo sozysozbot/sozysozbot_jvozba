@@ -5,20 +5,20 @@ function jvokaha_gui(txt)
 	
 	try{
 		var arr = jvokaha(txt);
-		arr = arr.filter(function(a){
-			return a.length > 1;
-		});
-		arr = arr.map(function(rafsi){
-			var selrafsi = search_selrafsi_from_rafsi2(rafsi)
-			if(selrafsi) {
-				return selrafsi;
-			} else {
-				return "-" + rafsi + "-" // output as rafsi form; signify as unknown
-			}
-		});
 	} catch(e) {
 		alert(e); return;
 	}
+	arr = arr.filter(function(a){
+		return a.length > 1;
+	});
+	arr = arr.map(function(rafsi){
+		var selrafsi = search_selrafsi_from_rafsi2(rafsi)
+		if(selrafsi) {
+			return selrafsi;
+		} else {
+			return "-" + rafsi + "-" // output as rafsi form; signify as unknown
+		}
+	});
 	output_jvokaha_result(arr, txt)
 }
 
