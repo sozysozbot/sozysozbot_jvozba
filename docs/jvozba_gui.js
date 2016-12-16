@@ -43,9 +43,14 @@ try{
 function output_corresponding_selrafsi(rafsi)
 {
 	var bare_rafsi = rafsi.replace(/-/g, "")
-	var selrafsi = search_selrafsi_from_rafsi(bare_rafsi);
-	var info = "<div class='txt'>-" + bare_rafsi + "- is a rafsi for {" + selrafsi + "}</div>";
-	document.getElementById("res").innerHTML = info;
+	var selrafsi = search_selrafsi_from_rafsi2(bare_rafsi);
+	if(selrafsi) {
+		var info = "<div class='txt'>-" + bare_rafsi + "- is a rafsi for {" + selrafsi + "}</div>";
+		document.getElementById("res").innerHTML = info;
+	} else {
+		var info = "<div class='txt'>No word found for rafsi -" + bare_rafsi + "-</div>";
+		document.getElementById("res").innerHTML = info;
+	}
 }
 
 function output_jvozba_answers(answers, inputs)
