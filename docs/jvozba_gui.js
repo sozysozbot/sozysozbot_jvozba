@@ -10,13 +10,13 @@ function jvozba_gui(txt)
 		/* empty */
 		return;
 	}
-try{
 	if(arr.length === 1){
 		output_corresponding_selrafsi(arr[0]);
 		return;
 	}
 	
 	var candid_arr = [];
+try{	
 	for(var i = 0; i < arr.length; i++) {
 		var dat = arr[i];
 		if(dat.startsWith("-") || dat.endsWith("-")) { // "luj-" or "-jvo"
