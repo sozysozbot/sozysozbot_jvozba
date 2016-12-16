@@ -21,6 +21,8 @@ function create_every_possibility(aa)
 	return result;
 }
 	
+// get_candid("bloti", false) ==> ["lot", "blo", "lo'i", "blot"]
+// get_candid("gismu", true) ==> ["gim", "gi'u", "gismu", "gism"]
 function get_candid(selrafsi, isLast)
 {
 	if(cmavo_rafsi_list[selrafsi]) {
