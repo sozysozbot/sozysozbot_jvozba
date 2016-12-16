@@ -8,7 +8,9 @@ function jvokaha_gui(txt)
 		arr = arr.filter(function(a){
 			return a.length > 1;
 		});
-		arr = arr.map(search_selrafsi_from_rafsi);
+		arr = arr.map(function(rafsi){
+			return search_selrafsi_from_rafsi(rafsi);
+		});
 	} catch(e) {
 		alert(e); return;
 	}
