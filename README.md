@@ -5,7 +5,7 @@ Just access https://sozysozbot.github.io/sozysozbot_jvozba/sozysozbot_jvozba.htm
 
 
 ## Major changes
-2016/12/09 Add rafsi "-zvi-" to experimental gismu {zviki} & add rafsi "-jax-" to cmavo {jai}
+2016/12/09 Add rafsi "-zvi-" to experimental gismu {zviki} & add rafsi "-jax-" to cmavo {jai}  
 2016/12/09 DEBUG: correctly decompose lujvo containing `ai`   
 2016/12/09 Add rafsi "-zil-" of cmavo {zi'o}; add rafsi "-kib-" to experimental gismu {kibro}   
 2016/11/25 Display the original word when the input is a single rafsi    
