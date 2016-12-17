@@ -5,7 +5,8 @@ Just access https://sozysozbot.github.io/sozysozbot_jvozba/sozysozbot_jvozba.htm
 
 
 ## Major changes
-2016/12/17 Allow unrecognised rafsi in jvoka'a & lookup-from-single-rafsi
+2016/12/17 Add an option to choose whether to allow `la`, `lai` and `doi` inside cmevla  
+2016/12/17 Allow unrecognised rafsi in jvoka'a & lookup-from-single-rafsi  
 2016/12/09 Add rafsi "-zvi-" to experimental gismu {zviki} & add rafsi "-jax-" to cmavo {jai}  
 2016/12/09 DEBUG: correctly decompose lujvo containing `ai`   
 2016/12/09 Add rafsi "-zil-" of cmavo {zi'o}; add rafsi "-kib-" to experimental gismu {kibro}   
@@ -21,7 +22,6 @@ Just access https://sozysozbot.github.io/sozysozbot_jvozba/sozysozbot_jvozba.htm
 2016/09/09 Allow using rafsi for the input  
 
 ## To do
-1. Add an option to choose whether to allow `la`, `lai` and `doi` inside cmevla
 2. Make cmevla be decomposable by jvoka'a  
 
 ## How you can contribute
