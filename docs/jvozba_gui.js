@@ -35,7 +35,7 @@ try{
 		&& document.getElementById("lalaidoi").checked
 		&& (l.match(/^(lai|doi)/)
 		 || l.match(/[aeiouy](lai|doi)/)
-		 || l.match(/^la[^u]/)
+		 || l.match(/^la[^u]/)  // the fact that CLL explicitly forbids two sequences `la` and `lai` signifies that `lau` is not forbidden
 		 || l.match(/[aeiouy]la[^u]/)
 		 )
 		);
