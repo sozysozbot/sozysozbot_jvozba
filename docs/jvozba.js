@@ -46,8 +46,7 @@ function normalize(rafsi_list)
 function is_tosmabru(rafsi, rest)
 {
 	//skip if cmevla
-	var last = rest[rest.length - 1];
-	if(is_cmevla(last)) { // ends with a consonant
+	if(is_cmevla(rest[rest.length - 1])) { // ends with a consonant
 		return;
 	}
 	
