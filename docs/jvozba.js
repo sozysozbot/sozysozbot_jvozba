@@ -1,3 +1,8 @@
+function is_cmevla(valsi)
+{
+	return valsi.length >= 1 && "aeiouy'".indexOf(valsi.charAt(valsi.length-1)) === -1
+}
+
 function normalize(rafsi_list)
 {
 	if(rafsi_list.length === 1) {
@@ -42,7 +47,7 @@ function is_tosmabru(rafsi, rest)
 {
 	//skip if cmevla
 	var last = rest[rest.length - 1];
-	if(["a", "e", "i", "o", "u"].indexOf(last.charAt(last.length - 1)) === -1) { // ends with a consonant
+	if(is_cmevla(last)) { // ends with a consonant
 		return;
 	}
 	
