@@ -29,6 +29,16 @@ try{
 	var answers = create_every_possibility(candid_arr).map(function(rafsi_list){
 		var result = normalize(rafsi_list);
 		return {lujvo: result.join(""), score: get_lujvo_score(result)};
+	}).filter(function(d){
+		var l = d.lujvo;
+		return !(is_cmevla(l)
+		&& document.getElementById("lalaidoi").checked
+		&& (l.match(/^(lai|doi)/)
+		 || l.match(/[aeiouy](lai|doi)/)
+		 || l.match(/^la[^u]/)
+		 || l.match(/[aeiouy]la[^u]/)
+		 )
+		);
 	}).sort(function(a,b){
 		return a.score - b.score;
 	});
