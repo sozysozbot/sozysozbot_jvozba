@@ -23,6 +23,8 @@ Just access https://sozysozbot.github.io/sozysozbot_jvozba/sozysozbot_jvozba.htm
 
 ## To do
 2. Make cmevla be decomposable by jvoka'a  
+3. Add gloss words  
+4. Allow unrecognised rafsi in jvozba
 
 ## How you can contribute
 1. Use & suggest improvements
