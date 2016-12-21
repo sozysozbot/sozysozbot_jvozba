@@ -1,33 +1,3 @@
-/*
-jvozba(["lujvo","zbasu"]) ==> [{"lujvo":"jvozba","score":5858},{"lujvo":"luvzba","score":5878},{"lujvo":"jvozbas","score":6888},{"lujvo":"luvzbas","score":6908},{"lujvo":"jvozbasu","score":7897},{"lujvo":"luvzbasu","score":7917},{"lujvo":"lujvyzba","score":8008},{"lujvo":"lujvyzbas","score":9038},{"lujvo":"lujvyzbasu","score":10047}]
-*/
-function jvozba(arr, forbid_la_lai_doi)
-{
-	var candid_arr = [];
-
-	for(var i = 0; i < arr.length; i++) {
-		candid_arr.push(get_candid(arr[i], /*isLast:*/ i === arr.length - 1))
-	}
-	
-	var answers = create_every_possibility(candid_arr).map(function(rafsi_list){
-		var result = normalize(rafsi_list);
-		return {lujvo: result.join(""), score: get_lujvo_score(result)};
-	}).filter(function(d){
-		var l = d.lujvo;
-		return !(is_cmevla(l) && forbid_la_lai_doi
-		&& (l.match(/^(lai|doi)/)
-		 || l.match(/[aeiouy](lai|doi)/)
-		 || l.match(/^la[^u]/)  // the fact that CLL explicitly forbids two sequences `la` and `lai` signifies that `lau` is not forbidden
-		 || l.match(/[aeiouy]la[^u]/)
-		 )
-		);
-	}).sort(function(a,b){
-		return a.score - b.score;
-	});
-
-	return answers;
-}
-
 function jvozba_gui(txt)
 {
 	txt = txt.replace(/h/g, "'");
