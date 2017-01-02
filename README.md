@@ -22,6 +22,7 @@ Just access https://sozysozbot.github.io/sozysozbot_jvozba/sozysozbot_jvozba.htm
 2016/09/09 Allow using rafsi for the input  
 
 ## To do
+1. Loosen restrictions on unnecessary hyphens
 2. Make cmevla be decomposable by jvoka'a  
 3. Add gloss words  
 4. Allow unrecognised rafsi in jvozba
