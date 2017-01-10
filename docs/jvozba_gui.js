@@ -57,7 +57,9 @@ function output_jvozba_answers(answers, inputs)
 		table += "<tr class='"+ 
 		 (last === "V" ? "brivla" : "cmevla") +"'>";
 			table += "<td>";
+			if(last !== "V" && !(document.getElementById("lalaidoi").checked)){ table += "."; }
 			table += word;
+			if(last !== "V"){ table += "."; }
 			table += "</td>";
 			table += "<td style='text-align: right;'>";
 			table += answers[i].score;
