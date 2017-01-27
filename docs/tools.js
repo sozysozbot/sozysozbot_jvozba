@@ -31,13 +31,22 @@ function gismu_rafsi_list$(a)
 	}
 }
 
+function cmavo_rafsi_list$(a)
+{
+	if(cmavo_rafsi_list[a]) {
+		return cmavo_rafsi_list[a];
+	}
+	if(document.getElementById("exp_rafsi").checked) {
+		return cmavo_rafsi_list_exp[a];
+	}
+}
 
 // get_candid("bloti", false) ==> ["lot", "blo", "lo'i", "blot"]
 // get_candid("gismu", true) ==> ["gim", "gi'u", "gismu", "gism"]
 function get_candid(selrafsi, isLast)
 {
-	if(cmavo_rafsi_list[selrafsi]) {
-		return cmavo_rafsi_list[selrafsi];		
+	if(cmavo_rafsi_list$(selrafsi)) {
+		return cmavo_rafsi_list$(selrafsi);		
 	} else if(gismu_rafsi_list$(selrafsi)){
 		var gismu = selrafsi;
 		var candid = gismu_rafsi_list$(gismu).concat([]);
@@ -73,15 +82,17 @@ function search_selrafsi_from_rafsi2(rafsi)
 	for(var i in gismu_rafsi_list) {
 		if(gismu_rafsi_list[i].indexOf(rafsi) !== -1) return i;
 	}
+	for(var j in cmavo_rafsi_list) {
+		if(cmavo_rafsi_list[j].indexOf(rafsi) !== -1) return j;
+	}
 	if(document.getElementById("exp_rafsi").checked) {
 		for(var i in gismu_rafsi_list_exp) {
 			if(gismu_rafsi_list_exp[i].indexOf(rafsi) !== -1) return i;
 		}
+		for(var j in cmavo_rafsi_list_exp) {
+			if(cmavo_rafsi_list_exp[j].indexOf(rafsi) !== -1) return j;
+		}
 	}
-	for(var j in cmavo_rafsi_list) {
-		if(cmavo_rafsi_list[j].indexOf(rafsi) !== -1) return j;
-	}
-	
 	return null;
 }
 
