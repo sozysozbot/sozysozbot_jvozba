@@ -1,6 +1,8 @@
 corci corc coc
 flese fles les
 ditcu ditc dit
+vujnu vujn vuj vu'u
+
 
 add rafsi "-zvi-" to experimental gismu {zviki} & add rafsi "-jax-" to cmavo {jai}
 add rafsi "-zil-" of cmavo {zi'o}
