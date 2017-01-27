@@ -16,25 +16,3 @@ skano skan
 balto balt
 clenu clen
 vedli vedl ve'i
-
-
-dau duv
-fei fel
-gai gam
-jau juz
-xei xem
-vai vav
-zai'e zam
-xo'ei xon
-po'o pov
-te'o tez
-vo'a vob
-to'o to'o
-vo'ai voz
-
-
-
-add rafsi "-zvi-" to experimental gismu {zviki}
-add rafsi "-kib-" to experimental gismu {kibro}
-
-
