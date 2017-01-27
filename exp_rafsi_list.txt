@@ -34,8 +34,7 @@ vo'ai voz
 
 
 
-add rafsi "-zvi-" to experimental gismu {zviki} & add rafsi "-jax-" to cmavo {jai}
-add rafsi "-zil-" of cmavo {zi'o}
+add rafsi "-zvi-" to experimental gismu {zviki}
 add rafsi "-kib-" to experimental gismu {kibro}
 
 
