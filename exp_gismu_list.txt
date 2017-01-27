@@ -11,6 +11,10 @@ xerno xern
 tezda tezd
 zmico zmic zic
 kazmi kazm
+lokra lokr
+skano skan
+balto balt
+clenu clen
 
 dau duv
 fei fel
