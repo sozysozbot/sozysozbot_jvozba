@@ -19,6 +19,7 @@ vai vav
 zai'e zam
 xo'ei xon
 po'o pov
+te'o tez
 
 
 add rafsi "-zvi-" to experimental gismu {zviki} & add rafsi "-jax-" to cmavo {jai}
