@@ -5,6 +5,7 @@ Just access https://sozysozbot.github.io/sozysozbot_jvozba/sozysozbot_jvozba.htm
 
 
 ## Major changes
+2017/01/28 Add an option to choose whether to allow experimental rafsi
 2017/01/10 Add period(s) to cmevla (based on whether to allow `la`, `lai` and `doi`)
 2016/12/17 Add an option to choose whether to allow `la`, `lai` and `doi` inside cmevla  
 2016/12/17 Allow unrecognised rafsi in jvoka'a & lookup-from-single-rafsi  

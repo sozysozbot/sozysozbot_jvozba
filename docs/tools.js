@@ -21,15 +21,35 @@ function create_every_possibility(aa)
 	return result;
 }
 	
+function gismu_rafsi_list$(a)
+{
+	if(gismu_rafsi_list[a]) {
+		return gismu_rafsi_list[a];
+	}
+	if(document.getElementById("exp_rafsi").checked) {
+		return gismu_rafsi_list_exp[a];
+	}
+}
+
+function cmavo_rafsi_list$(a)
+{
+	if(cmavo_rafsi_list[a]) {
+		return cmavo_rafsi_list[a];
+	}
+	if(document.getElementById("exp_rafsi").checked) {
+		return cmavo_rafsi_list_exp[a];
+	}
+}
+
 // get_candid("bloti", false) ==> ["lot", "blo", "lo'i", "blot"]
 // get_candid("gismu", true) ==> ["gim", "gi'u", "gismu", "gism"]
 function get_candid(selrafsi, isLast)
 {
-	if(cmavo_rafsi_list[selrafsi]) {
-		return cmavo_rafsi_list[selrafsi];		
-	} else if(gismu_rafsi_list[selrafsi]){
+	if(cmavo_rafsi_list$(selrafsi)) {
+		return cmavo_rafsi_list$(selrafsi);		
+	} else if(gismu_rafsi_list$(selrafsi)){
 		var gismu = selrafsi;
-		var candid = gismu_rafsi_list[gismu].concat([]);
+		var candid = gismu_rafsi_list$(gismu).concat([]);
 		
 		if(isLast) {
 			candid.push(gismu);
@@ -47,7 +67,7 @@ function get_candid(selrafsi, isLast)
 
 function search_selrafsi_from_rafsi2(rafsi)
 {
-	if(gismu_rafsi_list[rafsi]) return rafsi; // 5-letter rafsi
+	if(gismu_rafsi_list$(rafsi)) return rafsi; // 5-letter rafsi
 	
 	/* 
 		I spent 45 minutes trying to find out whether "brod" can be a rafsi for "brodV", but couldn't find that out.
@@ -56,7 +76,7 @@ function search_selrafsi_from_rafsi2(rafsi)
 	if(rafsi !== "brod" && rafsi.length === 4 && rafsi.indexOf("'") === -1) { //4-letter rafsi
 		for(var u=0; u<5; u++) { 
 			var gismu_candid = rafsi + "aeiou".charAt(u);
-			if(gismu_rafsi_list[gismu_candid]) return gismu_candid;
+			if(gismu_rafsi_list$(gismu_candid)) return gismu_candid;
 		}
 	}
 	for(var i in gismu_rafsi_list) {
@@ -65,7 +85,14 @@ function search_selrafsi_from_rafsi2(rafsi)
 	for(var j in cmavo_rafsi_list) {
 		if(cmavo_rafsi_list[j].indexOf(rafsi) !== -1) return j;
 	}
-	
+	if(document.getElementById("exp_rafsi").checked) {
+		for(var i in gismu_rafsi_list_exp) {
+			if(gismu_rafsi_list_exp[i].indexOf(rafsi) !== -1) return i;
+		}
+		for(var j in cmavo_rafsi_list_exp) {
+			if(cmavo_rafsi_list_exp[j].indexOf(rafsi) !== -1) return j;
+		}
+	}
 	return null;
 }
 
