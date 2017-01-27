@@ -13,6 +13,7 @@ jau juz
 xei xem
 vai vav
 zai'e zam
+xo'ei xon
 
 
 add rafsi "-zvi-" to experimental gismu {zviki} & add rafsi "-jax-" to cmavo {jai}
