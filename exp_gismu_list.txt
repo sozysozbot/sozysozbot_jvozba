@@ -8,6 +8,7 @@ nicfa nicf nif
 xonba xonb
 tende tend te'e
 xerno xern
+tezda tezd
 
 dau duv
 fei fel
@@ -17,6 +18,7 @@ xei xem
 vai vav
 zai'e zam
 xo'ei xon
+po'o pov
 
 
 add rafsi "-zvi-" to experimental gismu {zviki} & add rafsi "-jax-" to cmavo {jai}
