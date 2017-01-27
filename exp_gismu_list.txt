@@ -15,6 +15,8 @@ lokra lokr
 skano skan
 balto balt
 clenu clen
+vedli vedl ve'i
+
 
 dau duv
 fei fel
@@ -26,6 +28,8 @@ zai'e zam
 xo'ei xon
 po'o pov
 te'o tez
+vo'a vob
+
 
 
 add rafsi "-zvi-" to experimental gismu {zviki} & add rafsi "-jax-" to cmavo {jai}
