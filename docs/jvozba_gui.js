@@ -4,7 +4,7 @@ function jvozba_gui(txt)
 	txt = txt.toLowerCase();
 	var arr = txt.split(" ");
 	var arr2 = [];
-	
+
 	arr = arr.filter(function(a){ return a !== ""; });
 	if(arr.length === 0){
 		/* empty */
@@ -14,20 +14,22 @@ function jvozba_gui(txt)
 		output_corresponding_selrafsi(arr[0]);
 		return;
 	}
-	
-try{	
-	for(var i = 0; i < arr.length; i++) {
-		var dat = arr[i];
-		if(dat.startsWith("-") || dat.endsWith("-")) { // "luj-" or "-jvo"
-			arr[i] = search_selrafsi_from_rafsi(dat.replace(/-/g, ""));
+
+	try{
+		for(var i = 0; i < arr.length; i++) {
+			var dat = arr[i];
+			if(dat.startsWith("-") || dat.endsWith("-")) { // "luj-" or "-jvo"
+					arr[i] = search_selrafsi_from_rafsi(dat.replace(/-/g, ""));
+			}
+			arr2[arr2.length] = arr[i];
 		}
-		arr2[arr2.length] = arr[i];
+
+		var answers = jvozba(arr, document.getElementById("lalaidoi").checked);
 	}
-	
-	var answers = jvozba(arr, document.getElementById("lalaidoi").checked);
-}catch(e){
-	alert(e); return;
-}
+	catch(e){
+		alert(e); return;
+	}
+
 	output_jvozba_answers(answers, arr2);
 }
 
@@ -53,20 +55,40 @@ function output_jvozba_answers(answers, inputs)
 	for(var i=0; i<answers.length; i++) {
 		var word = answers[i].lujvo;
 		var last = get_CV_info(word[word.length-1]);
-		
-		table += "<tr class='"+ 
-		 (last === "V" ? "brivla" : "cmevla") +"'>";
-			table += "<td>";
-			if(last !== "V" && !(document.getElementById("lalaidoi").checked)){ table += "."; }
-			table += word;
-			if(last !== "V"){ table += "."; }
-			table += "</td>";
-			table += "<td style='text-align: right;'>";
-			table += answers[i].score;
-			table += "</td>";
+
+		table += "<tr class='"+
+		(last === "V" ? "brivla" : "cmevla") +"'>";
+		table += "<td>";
+		if(last !== "V" && !(document.getElementById("lalaidoi").checked)){ table += "."; }
+		table += word;
+		if(last !== "V"){ table += "."; }
+		table += "</td>";
+		table += "<td style='text-align: right;'>";
+		table += answers[i].score;
+		table += "</td>";
 		table += "</tr>";
 	}
-	
+
 	table += "</table>"
 	document.getElementById("res").innerHTML = info + table;
+}
+
+function jvozba_gui_loaded()
+{
+	// URL() supported by modern browsers
+	var url = new URL(location.href);
+
+	jvozbaParam = url.searchParams.get('b');
+	if (jvozbaParam)
+	{
+		document.a.b.value = url.searchParams.get('b');
+		jvozba_gui(document.a.b.value);
+	}
+
+	jvokahaParam = url.searchParams.get('d');
+	if (jvokahaParam)
+	{
+		document.c.d.value = url.searchParams.get('d');
+		jvokaha_gui(document.c.d.value);
+	}
 }

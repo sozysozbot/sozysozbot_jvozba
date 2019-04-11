@@ -1,62 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Jvozba by sozysozbot</title>
-<script src="ECMA.js"></script>
-<script src="rafsi_list.js"></script>
-<script src="scoring.js"></script>
-<script src="jvozba.js"></script>
-<script src="tools.js"></script>
-<script src="jvokaha.js"></script>
-<script src="jvokaha_gui.js"></script>
-<script src="jvozba_gui.js"></script>
-<link rel="stylesheet" type="text/css" href="style.css">
+	<meta charset="UTF-8">
+	<title>Jvozba by sozysozbot</title>
+	<script src="ECMA.js"></script>
+	<script src="rafsi_list.js"></script>
+	<script src="scoring.js"></script>
+	<script src="jvozba.js"></script>
+	<script src="tools.js"></script>
+	<script src="jvokaha.js"></script>
+	<script src="jvokaha_gui.js"></script>
+	<script src="jvozba_gui.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
-<table class="main">
-<tr><td colspan="2"><div style="margin:auto;width:550px; padding: 2px">
-<input type="checkbox" id="lalaidoi"/>Forbid sequences la, lai or doi inside cmevla unless preceded by a consonant<br>
-<input type="checkbox" checked="checked" disabled="disabled" id="strict_hyphen"/>Unnecessary hyphens are forbidden<br>
-<input type="checkbox" checked="checked" id="exp_rafsi"/>Use experimental rafsi
-</div></td></tr>
-<tr class="main2"><td>
-<div class="u right">
-Yet another jvozba<br>
-Sample inputs:<br>
-<ul>
-<li>lujvo zbasu</li>
-<li>lujvo -zba</li>
-<li>jvo- zbasu</li>
-<li>jvo- zba-</li>
-<li>-jvo-</li>
-</ul>
-<form name="a" onsubmit="jvozba_gui(document.a.b.value);return false;">
-	<input type="text" name="b" value="lujvo zbasu">
-	<input type="button" value="zbasu" onclick="jvozba_gui(document.a.b.value)">
-</form>
-<div id="res"></div>
-</div> <!-- u right -->
-</td>
-<td>
-<div class="u">
-Yet another jvoka'a<br>
-Sample inputs:<br>
-<ul>
-<li>fu'ivla</li>
-<li>selbritcita</li>
-<li>jvokaha</li>
-<li>sofybakni</li>
-<li>zgovla</li>
-</ul>
-<form name="c" onsubmit="jvokaha_gui(document.c.d.value);return false;">
-	<input type="text" name="d" value="jvoka'a">
-	<input type="button" value="katna" onclick="jvokaha_gui(document.c.d.value)">
-</form>
-<div id="res2"></div>
-</div>  <!-- u -->
-</td>
-</tr>
+<body onload="jvozba_gui_loaded()">
+	<table class="main">
+		<tr><td colspan="2"><div style="margin:auto;width:550px; padding: 2px">
+			<input type="checkbox" id="lalaidoi"/>Forbid sequences la, lai or doi inside cmevla unless preceded by a consonant<br>
+			<input type="checkbox" checked="checked" disabled="disabled" id="strict_hyphen"/>Unnecessary hyphens are forbidden<br>
+			<input type="checkbox" checked="checked" id="exp_rafsi"/>Use experimental rafsi
+		</div></td></tr>
+		<tr class="main2"><td>
+			<div class="u right">
+				Yet another jvozba<br>
+				Sample inputs:<br>
+				<ul>
+					<li>lujvo zbasu</li>
+					<li>lujvo -zba</li>
+					<li>jvo- zbasu</li>
+					<li>jvo- zba-</li>
+					<li>-jvo-</li>
+				</ul>
+				<form name="a" onsubmit="jvozba_gui(document.a.b.value);return false;">
+					<input type="text" name="b" value="lujvo zbasu">
+					<input type="button" value="zbasu" onclick="jvozba_gui(document.a.b.value)">
+				</form>
+				<div id="res"></div>
+			</div> <!-- u right -->
+		</td>
+		<td>
+			<div class="u">
+				Yet another jvoka'a<br>
+				Sample inputs:<br>
+				<ul>
+					<li>fu'ivla</li>
+					<li>selbritcita</li>
+					<li>jvokaha</li>
+					<li>sofybakni</li>
+					<li>zgovla</li>
+				</ul>
+				<form name="c" onsubmit="jvokaha_gui(document.c.d.value);return false;">
+					<input type="text" name="d" value="jvoka'a">
+					<input type="button" value="katna" onclick="jvokaha_gui(document.c.d.value)">
+				</form>
+				<div id="res2"></div>
+			</div>  <!-- u -->
+		</td>
+	</tr>
 </table>
 </body>
 </html>
