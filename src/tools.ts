@@ -26,7 +26,7 @@ function gismu_rafsi_list$(a)
 	if(gismu_rafsi_list[a]) {
 		return gismu_rafsi_list[a];
 	}
-	if(document.getElementById("exp_rafsi").checked) {
+	if((document.getElementById("exp_rafsi") as HTMLInputElement).checked) {
 		return gismu_rafsi_list_exp[a];
 	}
 }
@@ -36,7 +36,7 @@ function cmavo_rafsi_list$(a)
 	if(cmavo_rafsi_list[a]) {
 		return cmavo_rafsi_list[a];
 	}
-	if(document.getElementById("exp_rafsi").checked) {
+	if ((document.getElementById("exp_rafsi") as HTMLInputElement).checked) {
 		return cmavo_rafsi_list_exp[a];
 	}
 }
@@ -85,7 +85,7 @@ function search_selrafsi_from_rafsi2(rafsi)
 	for(var j in cmavo_rafsi_list) {
 		if(cmavo_rafsi_list[j].indexOf(rafsi) !== -1) return j;
 	}
-	if(document.getElementById("exp_rafsi").checked) {
+	if ((document.getElementById("exp_rafsi") as HTMLInputElement).checked) {
 		for(var i in gismu_rafsi_list_exp) {
 			if(gismu_rafsi_list_exp[i].indexOf(rafsi) !== -1) return i;
 		}

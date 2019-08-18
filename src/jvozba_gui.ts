@@ -24,7 +24,7 @@ function jvozba_gui(txt)
 			arr2[arr2.length] = arr[i];
 		}
 
-		var answers = jvozba(arr, document.getElementById("lalaidoi").checked);
+		var answers = jvozba(arr, (document.getElementById("lalaidoi") as HTMLInputElement).checked);
 	}
 	catch(e){
 		alert(e); return;
@@ -59,7 +59,7 @@ function output_jvozba_answers(answers, inputs)
 		table += "<tr class='"+
 		(last === "V" ? "brivla" : "cmevla") +"'>";
 		table += "<td>";
-		if(last !== "V" && !(document.getElementById("lalaidoi").checked)){ table += "."; }
+		if (last !== "V" && !((document.getElementById("lalaidoi") as HTMLInputElement).checked)){ table += "."; }
 		table += word;
 		if(last !== "V"){ table += "."; }
 		table += "</td>";
@@ -78,17 +78,17 @@ function jvozba_gui_loaded()
 	// URL() supported by modern browsers
 	var url = new URL(location.href);
 
-	jvozbaParam = url.searchParams.get('b');
+	let jvozbaParam = url.searchParams.get('b');
 	if (jvozbaParam)
 	{
-		document.a.b.value = url.searchParams.get('b');
-		jvozba_gui(document.a.b.value);
+		(document.getElementById("b") as HTMLInputElement).value = url.searchParams.get('b');
+		jvozba_gui((document.getElementById("b") as HTMLInputElement).value);
 	}
 
-	jvokahaParam = url.searchParams.get('d');
+	let jvokahaParam = url.searchParams.get('d');
 	if (jvokahaParam)
 	{
-		document.c.d.value = url.searchParams.get('d');
-		jvokaha_gui(document.c.d.value);
+		(document.getElementById("d") as HTMLInputElement).value = url.searchParams.get('d');
+		jvokaha_gui((document.getElementById("d") as HTMLInputElement).value);
 	}
 }
