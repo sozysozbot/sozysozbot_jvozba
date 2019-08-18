@@ -37,16 +37,16 @@ function is_cmevla(valsi: string): boolean
 
 function normalize(rafsi_list: string[]): string[]
 {
-	if(rafsi_list.length === 1) {
+	if(rafsi_list.length < 2) {
 		throw new Error("You need at least two valsi to make a lujvo");
 	}
 	
-	var input: string[] = rafsi_list.concat([]); //copy
-	var result: string[] = [input.pop()]; // add the final rafsi
+	var input: string[] = Array.from(rafsi_list); //copy
+	var result: string[] = [input.pop()!]; // add the final rafsi
 	
 	
 	while(input.length)	{
-		var rafsi: string = input.pop();
+		var rafsi: string = input.pop()!;
 		var end = rafsi.charAt(rafsi.length - 1);
 		var init = result[0].charAt(0);	
 		
@@ -79,7 +79,7 @@ function is_tosmabru(rafsi: string, rest: string[]): boolean
 {
 	//skip if cmevla
 	if(is_cmevla(rest[rest.length - 1])) { // ends with a consonant
-		return;
+		return false;
 	}
 	
 	var index;
@@ -114,6 +114,11 @@ function is_tosmabru(rafsi: string, rest: string[]): boolean
 		} else {
 			return false;
 		}
+	}
+
+	if (typeof index === "undefined") {
+		/* This can only occur if everything is CVC, but the that is a cmevla */
+		throw new Error("Cannot happen");
 	}
 	
 	//further testing

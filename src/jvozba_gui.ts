@@ -41,10 +41,10 @@ function output_corresponding_selrafsi(rafsi: string): void
 	var selrafsi = search_selrafsi_from_rafsi2(bare_rafsi);
 	if(selrafsi) {
 		var info = "<div class='txt'>-" + bare_rafsi + "- is a rafsi for {" + selrafsi + "}</div>";
-		document.getElementById("res").innerHTML = info;
+		document.getElementById("res")!.innerHTML = info;
 	} else {
 		var info = "<div class='txt'>No word found for rafsi -" + bare_rafsi + "-</div>";
-		document.getElementById("res").innerHTML = info;
+		document.getElementById("res")!.innerHTML = info;
 	}
 }
 
@@ -70,7 +70,7 @@ function output_jvozba_answers(answers: LujvoAndScore[], inputs: string[])
 	}
 
 	table += "</table>"
-	document.getElementById("res").innerHTML = info + table;
+	document.getElementById("res")!.innerHTML = info + table;
 }
 
 function jvozba_gui_loaded()
@@ -81,14 +81,20 @@ function jvozba_gui_loaded()
 	let jvozbaParam = url.searchParams.get('b');
 	if (jvozbaParam)
 	{
-		(document.getElementById("b") as HTMLInputElement).value = url.searchParams.get('b');
-		jvozba_gui((document.getElementById("b") as HTMLInputElement).value);
+		let val = url.searchParams.get('b');
+		if (typeof val === "string") {
+			(document.getElementById("b") as HTMLInputElement).value = val;
+			jvozba_gui((document.getElementById("b") as HTMLInputElement).value);
+		}
 	}
 
 	let jvokahaParam = url.searchParams.get('d');
 	if (jvokahaParam)
 	{
-		(document.getElementById("d") as HTMLInputElement).value = url.searchParams.get('d');
+		let val = url.searchParams.get('d');
+		if (typeof val === "string") {
+		(document.getElementById("d") as HTMLInputElement).value = val ;
 		jvokaha_gui((document.getElementById("d") as HTMLInputElement).value);
+		}
 	}
 }

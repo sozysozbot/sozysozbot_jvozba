@@ -26,5 +26,5 @@ function output_jvokaha_result(arr: string[], input: string)
 {
 	var info = "<div class='txt'>{" + input + "} --&gt; {" + arr.join(" ") + "}";
 	// FIXME: how about showing the definition or something
-	document.getElementById("res2").innerHTML = info;
+	document.getElementById("res2")!.innerHTML = info;
 }

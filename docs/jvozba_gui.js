@@ -71,12 +71,18 @@ function jvozba_gui_loaded() {
     var url = new URL(location.href);
     let jvozbaParam = url.searchParams.get('b');
     if (jvozbaParam) {
-        document.getElementById("b").value = url.searchParams.get('b');
-        jvozba_gui(document.getElementById("b").value);
+        let val = url.searchParams.get('b');
+        if (typeof val === "string") {
+            document.getElementById("b").value = val;
+            jvozba_gui(document.getElementById("b").value);
+        }
     }
     let jvokahaParam = url.searchParams.get('d');
     if (jvokahaParam) {
-        document.getElementById("d").value = url.searchParams.get('d');
-        jvokaha_gui(document.getElementById("d").value);
+        let val = url.searchParams.get('d');
+        if (typeof val === "string") {
+            document.getElementById("d").value = val;
+            jvokaha_gui(document.getElementById("d").value);
+        }
     }
 }

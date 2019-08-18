@@ -25,10 +25,10 @@ function is_cmevla(valsi) {
     return valsi.length >= 1 && "aeiouy'".indexOf(valsi.charAt(valsi.length - 1)) === -1;
 }
 function normalize(rafsi_list) {
-    if (rafsi_list.length === 1) {
+    if (rafsi_list.length < 2) {
         throw new Error("You need at least two valsi to make a lujvo");
     }
-    var input = rafsi_list.concat([]); //copy
+    var input = Array.from(rafsi_list); //copy
     var result = [input.pop()]; // add the final rafsi
     while (input.length) {
         var rafsi = input.pop();
@@ -62,7 +62,7 @@ function normalize(rafsi_list) {
 function is_tosmabru(rafsi, rest) {
     //skip if cmevla
     if (is_cmevla(rest[rest.length - 1])) { // ends with a consonant
-        return;
+        return false;
     }
     var index;
     for (var i = 0; i < rest.length; i++) {
@@ -90,6 +90,10 @@ function is_tosmabru(rafsi, rest) {
         else {
             return false;
         }
+    }
+    if (typeof index === "undefined") {
+        /* This can only occur if everything is CVC, but the that is a cmevla */
+        throw new Error("Cannot happen");
     }
     //further testing
     var tmp1 = rafsi;

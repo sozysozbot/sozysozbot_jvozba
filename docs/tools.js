@@ -36,12 +36,15 @@ function cmavo_rafsi_list$(a) {
 // get_candid("bloti", false) ==> ["lot", "blo", "lo'i", "blot"]
 // get_candid("gismu", true) ==> ["gim", "gi'u", "gismu", "gism"]
 function get_candid(selrafsi, isLast) {
-    if (cmavo_rafsi_list$(selrafsi)) {
-        return cmavo_rafsi_list$(selrafsi);
+    let a = cmavo_rafsi_list$(selrafsi);
+    if (a) {
+        return a;
     }
-    else if (gismu_rafsi_list$(selrafsi)) {
+    let b = gismu_rafsi_list$(selrafsi);
+    if (b) {
+        /* selrafsi is gismu */
         var gismu = selrafsi;
-        var candid = gismu_rafsi_list$(gismu).concat([]);
+        var candid = b.concat([]);
         if (isLast) {
             candid.push(gismu);
         }

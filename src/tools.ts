@@ -8,7 +8,7 @@ function create_every_possibility<T extends string| number| boolean| null | unde
 	if(arr_arr.length === 0) {
 		return [[]];
 	}
-	var arr = arr_arr.pop();
+	var arr = arr_arr.pop()!;
 	
 	var result: T[][] = [];
 	for(var i=0; i<arr.length; i++) {
@@ -45,11 +45,15 @@ function cmavo_rafsi_list$(a: string)
 // get_candid("gismu", true) ==> ["gim", "gi'u", "gismu", "gism"]
 function get_candid(selrafsi: string, isLast: boolean): string[]
 {
-	if(cmavo_rafsi_list$(selrafsi)) {
-		return cmavo_rafsi_list$(selrafsi);		
-	} else if(gismu_rafsi_list$(selrafsi)){
+	let a = cmavo_rafsi_list$(selrafsi);
+	if(a) {
+		return a;		
+	} 
+	let b = gismu_rafsi_list$(selrafsi);
+	if(b){
+		/* selrafsi is gismu */
 		var gismu = selrafsi;
-		var candid = gismu_rafsi_list$(gismu).concat([]);
+		var candid = b.concat([]);
 		
 		if(isLast) {
 			candid.push(gismu);
