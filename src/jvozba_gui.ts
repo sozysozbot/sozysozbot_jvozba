@@ -1,11 +1,11 @@
-function jvozba_gui(txt)
+function jvozba_gui(txt: string): void
 {
 	txt = txt.replace(/h/g, "'");
 	txt = txt.toLowerCase();
 	var arr = txt.split(" ");
-	var arr2 = [];
+	var arr2: string[] = [];
 
-	arr = arr.filter(function(a){ return a !== ""; });
+	arr = arr.filter(function(a: string){ return a !== ""; });
 	if(arr.length === 0){
 		/* empty */
 		return;
@@ -24,7 +24,7 @@ function jvozba_gui(txt)
 			arr2[arr2.length] = arr[i];
 		}
 
-		var answers = jvozba(arr, (document.getElementById("lalaidoi") as HTMLInputElement).checked);
+		var answers: LujvoAndScore[] = jvozba(arr, (document.getElementById("lalaidoi") as HTMLInputElement).checked);
 	}
 	catch(e){
 		alert(e); return;
@@ -35,7 +35,7 @@ function jvozba_gui(txt)
 
 
 /* single rafsi -> dictionary */
-function output_corresponding_selrafsi(rafsi)
+function output_corresponding_selrafsi(rafsi: string): void
 {
 	var bare_rafsi = rafsi.replace(/-/g, "")
 	var selrafsi = search_selrafsi_from_rafsi2(bare_rafsi);
@@ -48,7 +48,7 @@ function output_corresponding_selrafsi(rafsi)
 	}
 }
 
-function output_jvozba_answers(answers, inputs)
+function output_jvozba_answers(answers, inputs: string[])
 {
 	var info = "<div class='txt'>Displaying results for {" + inputs.join(" ") + "}: <span class='bri'>brivla</span> <span class='cme'>cmevla</span></div>";
 	var table = "<table>"

@@ -1,6 +1,6 @@
-function get_lujvo_score(rafsi_ynr_sequence)
+function get_lujvo_score(rafsi_ynr_sequence): number
 {
-	var lujvo = rafsi_ynr_sequence.join("");
+	var lujvo: string = rafsi_ynr_sequence.join("");
 	var L = lujvo.length;
 	var A = lujvo.split("'").length - 1;
 	var H = 0; var R = 0;
@@ -25,7 +25,7 @@ function get_lujvo_score(rafsi_ynr_sequence)
 get_CV_info("jvo") === "CCV"
 get_CV_info("ma'o") === "CV'V"
 */
-function get_CV_info(v)
+function get_CV_info(v: string)
 {
 	return v.split("").map(function (c){
 			if("aeiou".indexOf(c) !== -1) return "V";
@@ -33,4 +33,13 @@ function get_CV_info(v)
 			if(c === "'") return "'";
 			if(c === "y") return "Y";
 		}).join("");
+}
+
+function is_C(v: string): v is Consonant {
+	return v.split("").map(function (c) {
+		if ("aeiou".indexOf(c) !== -1) return "V";
+		if ("bcdfgjklmnprstvxz".indexOf(c) !== -1) return "C";
+		if (c === "'") return "'";
+		if (c === "y") return "Y";
+	}).join("") === "C";
 }

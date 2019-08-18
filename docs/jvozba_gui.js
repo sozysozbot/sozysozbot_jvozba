@@ -69,12 +69,12 @@ function output_jvozba_answers(answers, inputs) {
 function jvozba_gui_loaded() {
     // URL() supported by modern browsers
     var url = new URL(location.href);
-    var jvozbaParam = url.searchParams.get('b');
+    let jvozbaParam = url.searchParams.get('b');
     if (jvozbaParam) {
         document.getElementById("b").value = url.searchParams.get('b');
         jvozba_gui(document.getElementById("b").value);
     }
-    var jvokahaParam = url.searchParams.get('d');
+    let jvokahaParam = url.searchParams.get('d');
     if (jvokahaParam) {
         document.getElementById("d").value = url.searchParams.get('d');
         jvokaha_gui(document.getElementById("d").value);

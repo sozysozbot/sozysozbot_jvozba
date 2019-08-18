@@ -1,4 +1,4 @@
-function jvokaha_gui(txt)
+function jvokaha_gui(txt: string): void
 {
 	txt = txt.replace(/h/g, "'");
 	txt = txt.toLowerCase();
@@ -22,7 +22,7 @@ function jvokaha_gui(txt)
 	output_jvokaha_result(arr, txt)
 }
 
-function output_jvokaha_result(arr, input)
+function output_jvokaha_result(arr: string[], input: string)
 {
 	var info = "<div class='txt'>{" + input + "} --&gt; {" + arr.join(" ") + "}";
 	// FIXME: how about showing the definition or something

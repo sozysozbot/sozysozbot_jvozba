@@ -4,7 +4,7 @@ jvokaha("fu'irvla") --> error // because r-hyphen is unnecessary
 jvokaha("pasymabru") --> ["pas", "y", "mabru"]
 jvokaha("pasmabru") --> error // because {pasmabru} is actually {pa smabru}
 */
-function jvokaha(lujvo)
+function jvokaha(lujvo: string): string[]
 {
 	var arr = jvokaha2(lujvo);
 	var rafsi_list = arr.filter(function(a){
@@ -27,7 +27,7 @@ jvokaha2("fu'irvla") --> ["fu'i", "r", "vla"]
 jvokaha2("pasymabru") --> ["pas", "y", "mabru"]
 jvokaha2("pasmabru") --> ["pas", "mabru"]
 */
-function jvokaha2(lujvo)
+function jvokaha2(lujvo: string): string[]
 {
 	var original_lujvo = lujvo;
 	var res = [];

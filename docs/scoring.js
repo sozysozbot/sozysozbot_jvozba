@@ -55,3 +55,15 @@ function get_CV_info(v) {
             return "Y";
     }).join("");
 }
+function is_C(v) {
+    return v.split("").map(function (c) {
+        if ("aeiou".indexOf(c) !== -1)
+            return "V";
+        if ("bcdfgjklmnprstvxz".indexOf(c) !== -1)
+            return "C";
+        if (c === "'")
+            return "'";
+        if (c === "y")
+            return "Y";
+    }).join("") === "C";
+}

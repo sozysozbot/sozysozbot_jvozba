@@ -37,7 +37,7 @@ function normalize(rafsi_list) {
         if (is_4letter(rafsi)) {
             result.unshift("y");
         }
-        else if (get_CV_info(end) === "C" && get_CV_info(init) === "C" && is_permissible(end, init) === 0) {
+        else if (is_C(end) && is_C(init) && is_permissible(end, init) === 0) {
             result.unshift("y");
         }
         else if (end === "n" && ["ts", "tc", "dz", "dj"].indexOf(result[0].slice(0, 2)) !== -1) {
@@ -70,7 +70,20 @@ function is_tosmabru(rafsi, rest) {
             continue;
         index = i;
         if (rest[i] === "y" ||
-            (get_CV_info(rest[i]) === "CVCCV" && 2 === is_permissible(rest[i].charAt(2), rest[i].charAt(3)))) {
+            (() => {
+                if (get_CV_info(rest[i]) !== "CVCCV") {
+                    return false;
+                }
+                let charAt2 = rest[i].charAt(2);
+                if (!is_C(charAt2)) {
+                    throw new Error("Cannot happen");
+                }
+                let charAt3 = rest[i].charAt(3);
+                if (!is_C(charAt3)) {
+                    throw new Error("Cannot happen");
+                }
+                return 2 === is_permissible(charAt2, charAt3);
+            })()) {
             break;
             // further testing
         }
@@ -85,7 +98,15 @@ function is_tosmabru(rafsi, rest) {
     do {
         if (tmp2 === "y")
             return true;
-        if (2 !== is_permissible(tmp1.charAt(tmp1.length - 1), tmp2.charAt(0))) {
+        let a = tmp1.charAt(tmp1.length - 1);
+        if (!is_C(a)) {
+            throw new Error("Cannot happen");
+        }
+        let b = tmp2.charAt(0);
+        if (!is_C(b)) {
+            throw new Error("Cannot happen");
+        }
+        if (2 !== is_permissible(a, b)) {
             return false;
         }
         tmp1 = tmp2;

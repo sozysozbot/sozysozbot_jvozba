@@ -2,7 +2,7 @@
 	create_every_possibility([[1,11], [2], [3,33,333]]) ==> [ [1,2,3],[11,2,3],  [1,2,33],[11,2,33],  [1,2,333],[11,2,333] ]
 	create_every_possibility([[1,11]]) ==> [ [1],[11] ]
 */
-function create_every_possibility(aa)
+function create_every_possibility<T>(aa: T[][]): T[][]
 {
 	var arr_arr = JSON.parse(JSON.stringify(aa));
 	if(arr_arr.length === 0) {
@@ -14,14 +14,14 @@ function create_every_possibility(aa)
 	for(var i=0; i<arr.length; i++) {
 		var e = arr[i];
 		
-		result = result.concat(create_every_possibility(arr_arr).map(function(f){
+		result = result.concat(create_every_possibility(arr_arr).map(function(f: T[]){
 			return f.concat([e]);
 		}));
 	}
 	return result;
 }
 	
-function gismu_rafsi_list$(a)
+function gismu_rafsi_list$(a: string)
 {
 	if(gismu_rafsi_list[a]) {
 		return gismu_rafsi_list[a];
@@ -43,7 +43,7 @@ function cmavo_rafsi_list$(a)
 
 // get_candid("bloti", false) ==> ["lot", "blo", "lo'i", "blot"]
 // get_candid("gismu", true) ==> ["gim", "gi'u", "gismu", "gism"]
-function get_candid(selrafsi, isLast)
+function get_candid(selrafsi: string, isLast: boolean): string[]
 {
 	if(cmavo_rafsi_list$(selrafsi)) {
 		return cmavo_rafsi_list$(selrafsi);		
@@ -65,7 +65,7 @@ function get_candid(selrafsi, isLast)
 	}
 }
 
-function search_selrafsi_from_rafsi2(rafsi)
+function search_selrafsi_from_rafsi2(rafsi: string)
 {
 	if(gismu_rafsi_list$(rafsi)) return rafsi; // 5-letter rafsi
 	
@@ -96,7 +96,7 @@ function search_selrafsi_from_rafsi2(rafsi)
 	return null;
 }
 
-function search_selrafsi_from_rafsi(rafsi)
+function search_selrafsi_from_rafsi(rafsi: string)
 {
 	var selrafsi = search_selrafsi_from_rafsi2(rafsi)
 	if(selrafsi != null) {
