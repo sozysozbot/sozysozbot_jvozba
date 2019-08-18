@@ -2,6 +2,7 @@
     "compilerOptions": {
         "outDir": "./docs",
         "allowJs": true,
+        "noImplicitAny": true,
         "target": "es2015"
     },
     "include": [

@@ -2,15 +2,15 @@
 	create_every_possibility([[1,11], [2], [3,33,333]]) ==> [ [1,2,3],[11,2,3],  [1,2,33],[11,2,33],  [1,2,333],[11,2,333] ]
 	create_every_possibility([[1,11]]) ==> [ [1],[11] ]
 */
-function create_every_possibility<T>(aa: T[][]): T[][]
+function create_every_possibility<T extends string| number| boolean| null | undefined>(aa: T[][]): T[][]
 {
-	var arr_arr = JSON.parse(JSON.stringify(aa));
+	var arr_arr : T[][] = JSON.parse(JSON.stringify(aa));
 	if(arr_arr.length === 0) {
 		return [[]];
 	}
 	var arr = arr_arr.pop();
 	
-	var result = [];
+	var result: T[][] = [];
 	for(var i=0; i<arr.length; i++) {
 		var e = arr[i];
 		
@@ -31,7 +31,7 @@ function gismu_rafsi_list$(a: string)
 	}
 }
 
-function cmavo_rafsi_list$(a)
+function cmavo_rafsi_list$(a: string)
 {
 	if(cmavo_rafsi_list[a]) {
 		return cmavo_rafsi_list[a];

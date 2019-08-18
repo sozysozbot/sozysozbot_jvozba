@@ -1,4 +1,4 @@
-function get_lujvo_score(rafsi_ynr_sequence): number
+function get_lujvo_score(rafsi_ynr_sequence: string[]): number
 {
 	var lujvo: string = rafsi_ynr_sequence.join("");
 	var L = lujvo.length;

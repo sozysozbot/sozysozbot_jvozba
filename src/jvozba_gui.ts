@@ -48,7 +48,7 @@ function output_corresponding_selrafsi(rafsi: string): void
 	}
 }
 
-function output_jvozba_answers(answers, inputs: string[])
+function output_jvozba_answers(answers: LujvoAndScore[], inputs: string[])
 {
 	var info = "<div class='txt'>Displaying results for {" + inputs.join(" ") + "}: <span class='bri'>brivla</span> <span class='cme'>cmevla</span></div>";
 	var table = "<table>"
