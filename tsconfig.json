@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "outDir": "./docs",
+        "allowJs": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "target": "es2015"
+    },
+    "include": [
+        "./src/**/*"
+    ]
+}
